@@ -1,0 +1,37 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             xmlns:local="clr-namespace:Teste"
+             x:Class="Teste.MainPage">
+
+    <ScrollView Orientation="Vertical" x:Name="scrollMensagens"  BackgroundColor="#dedede" >
+
+        <ListView x:Name="ListView" HasUnevenRows="True"  SeparatorVisibility="None" ItemSelected="ListView_ItemSelected" IsPullToRefreshEnabled="True" BackgroundColor="#dedede" >
+            <ListView.ItemTemplate >
+                <DataTemplate x:Name="dtTemp" >
+                    <ViewCell>
+                        <Grid  Margin="10,10,10,0" BackgroundColor="White" Padding="10" VerticalOptions="FillAndExpand">
+                            <Grid.ColumnDefinitions>
+                                <ColumnDefinition  Width="24" />
+                                <ColumnDefinition  Width="*"/>
+                            </Grid.ColumnDefinitions>
+                            <Grid.RowDefinitions>
+                                <RowDefinition   />
+                            </Grid.RowDefinitions>
+
+                            <Image Source="{Binding Visualizado}"  Grid.Column="0" Grid.Row="0" x:Name="img_ico" BackgroundColor="White" VerticalOptions="Start"/>
+
+                            <StackLayout Grid.Column="1" Grid.Row="0" BackgroundColor="White" VerticalOptions="FillAndExpand" >
+                                <Label Text="{Binding DtAviso}" Margin="0,0,5,0" FontSize="7" HorizontalTextAlignment="End" HorizontalOptions="EndAndExpand"/>
+                                <Label Text="{Binding Assunto}" FontAttributes="Bold" Margin="0,2,0,0" FontSize="Small" x:Name="lbTitulo" />
+                                <Label Text="{Binding Previa}" FontSize="Micro" />
+                                <Label Text="+ Detalhes" FontSize="Micro" FontAttributes="Italic"   VerticalOptions="End" HorizontalTextAlignment="End"/>
+                            </StackLayout>
+                        </Grid>
+                    </ViewCell>
+                </DataTemplate>
+            </ListView.ItemTemplate>
+        </ListView>
+    </ScrollView>
+
+</ContentPage>
